@@ -6,7 +6,7 @@
     function ($rootScope, Permission, $state, $q) {
       $rootScope.$on('$stateChangeStart',
       function (event, toState, toParams, fromState, fromParams) {
-        if (toState.$$finishAuthorize) {
+        if (toState.$$finishAuthorize || event.defaultPrevented) {
           return;
         }
 
